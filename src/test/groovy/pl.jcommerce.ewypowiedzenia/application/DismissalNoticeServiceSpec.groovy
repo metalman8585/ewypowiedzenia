@@ -3,7 +3,7 @@ package pl.jcommerce.ewypowiedzenia.application
 import pl.jcommerce.ewypowiedzenia.infrastructure.FileDto
 import spock.lang.Specification
 
-class DismissalNoticeServiceTest extends Specification {
+class DismissalNoticeServiceSpec extends Specification {
 
     def dismissalNoticeService = new DismissalNoticeService()
 

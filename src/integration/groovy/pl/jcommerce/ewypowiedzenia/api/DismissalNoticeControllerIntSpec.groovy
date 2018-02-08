@@ -1,12 +1,12 @@
 package pl.jcommerce.ewypowiedzenia.api
 
-import pl.jcommerce.ewypowiedzenia.BaseIntTest
+import pl.jcommerce.ewypowiedzenia.BaseIntSpec
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 
-class DismissalNoticeControllerIntTest extends BaseIntTest {
+class DismissalNoticeControllerIntSpec extends BaseIntSpec {
 
     def "should create dismissal notice"() {
         when:
