@@ -12,7 +12,7 @@ import spock.lang.Specification
 
 @ContextConfiguration
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-abstract class BaseIntTest extends Specification {
+abstract class BaseIntSpec extends Specification {
 
     @Autowired
     WebApplicationContext context
