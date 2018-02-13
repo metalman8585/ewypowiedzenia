@@ -1,22 +1,17 @@
-target/
+### Intellij ###
+.idea
 
-.idea/
-/out/
-*/out/
-
-*/*.iml
-*.iml
-
-git.properties
-
-npm-debug.log
-*.classpath
-*.project
-org.eclipse.core.resources.prefs
-org.eclipse.jdt.core.prefs
-org.eclipse.jdt.groovy.core.prefs
-org.eclipse.wst.common.component
-org.eclipse.wst.common.project.facet.core.xml
+### Eclipse ###
+.metadata
+.project
 .settings/
-logs/
-node_modules/
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
