@@ -1,16 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { DismissalNoticeComponent } from './dismissal-notice/dismissal-notice.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DismissalNoticeComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
