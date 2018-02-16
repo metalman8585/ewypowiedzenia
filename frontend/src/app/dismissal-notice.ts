@@ -9,4 +9,10 @@ export class DismissalNotice {
   agreementDate: string;
   dismissalDate: string;
   dismissalPlace: string;
+
+  constructor() {
+    this.homeAddress = new Address;
+    this.companyAddress = new Address;
+  }
+
 }

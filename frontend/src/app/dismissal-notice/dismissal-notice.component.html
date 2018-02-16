@@ -1,60 +1,45 @@
-<div>
-  <label>First name:
-    <input [(ngModel)]="dismissalNotice.firstName" placeholder="First name">
-  </label>
-</div>
-<div>
-  <label>Last name:
-    <input [(ngModel)]="dismissalNotice.lastName" placeholder="Last name">
-  </label>
-</div>
-<div>
-  <label>Street:
-    <input [(ngModel)]="dismissalNotice.homeAddress.street" placeholder="Street">
-  </label>
-</div>
-<div>
-  <label>Postal code:
-    <input [(ngModel)]="dismissalNotice.homeAddress.postalCode" placeholder="Postal code">
-  </label>
-</div>
-<div>
-  <label>City:
-    <input [(ngModel)]="dismissalNotice.homeAddress.city" placeholder="City">
-  </label>
-</div>
-<div>
-  <label>Company name:
-    <input [(ngModel)]="dismissalNotice.companyName" placeholder="Company name">
-  </label>
-</div>
-<div>
-  <label>Street:
-    <input [(ngModel)]="dismissalNotice.companyAddress.street" placeholder="Street">
-  </label>
-</div>
-<div>
-  <label>Postal code:
-    <input [(ngModel)]="dismissalNotice.companyAddress.postalCode" placeholder="Postal code">
-  </label>
-</div>
-<div>
-  <label>City:
-    <input [(ngModel)]="dismissalNotice.companyAddress.city" placeholder="City">
-  </label>
-</div>
-<div>
-  <label>Agreement date:
-    <input [(ngModel)]="dismissalNotice.agreementDate" placeholder="Agreement date">
-  </label>
-</div>
-<div>
-  <label>Dismissal date:
-    <input [(ngModel)]="dismissalNotice.dismissalDate" placeholder="Dismissal date">
-  </label>
-</div>
-<div>
-  <label>Dismissal place:
-    <input [(ngModel)]="dismissalNotice.dismissalPlace" placeholder="Dismissal place">
-  </label>
+<div class="container">
+  <form #dismissalNoticeForm="ngForm" class="ewypowiedzenia-form">
+    <mat-form-field class="ewypowiedzenia-full-width">
+        <input matInput class="form-control" name="firstName" required [(ngModel)]="dismissalNotice.firstName" placeholder="First name">
+    </mat-form-field>
+    <mat-form-field class="ewypowiedzenia-full-width">
+        <input matInput class="form-control" name="lastName" required [(ngModel)]="dismissalNotice.lastName" placeholder="Last name">
+    </mat-form-field>
+    <mat-form-field class="ewypowiedzenia-full-width">
+        <input matInput class="form-control" name="homeAddressStreet" required [(ngModel)]="dismissalNotice.homeAddress.street" placeholder="Street">
+    </mat-form-field>
+    <mat-form-field class="ewypowiedzenia-full-width">
+        <input matInput class="form-control" name="homeAddressPostalCode" required [(ngModel)]="dismissalNotice.homeAddress.postalCode" placeholder="Postal code">
+    </mat-form-field>
+    <mat-form-field class="ewypowiedzenia-full-width">
+        <input matInput class="form-control" name="homeAddressCity" required [(ngModel)]="dismissalNotice.homeAddress.city" placeholder="City">
+    </mat-form-field>
+    <mat-form-field class="ewypowiedzenia-full-width">
+        <input matInput class="form-control" name="companyName" required [(ngModel)]="dismissalNotice.companyName" placeholder="Company name">
+    </mat-form-field>
+    <mat-form-field class="ewypowiedzenia-full-width">
+        <input matInput class="form-control" name="companyAddressStreet" required [(ngModel)]="dismissalNotice.companyAddress.street" placeholder="Street">
+    </mat-form-field>
+    <mat-form-field class="ewypowiedzenia-full-width">
+        <input matInput class="form-control" name="companyAddressPostalCode" required [(ngModel)]="dismissalNotice.companyAddress.postalCode" placeholder="Postal code">
+    </mat-form-field>
+    <mat-form-field class="ewypowiedzenia-full-width">
+        <input matInput class="form-control" name="companyAddressCity" required [(ngModel)]="dismissalNotice.companyAddress.city" placeholder="City">
+    </mat-form-field>
+    <mat-form-field class="ewypowiedzenia-full-width">
+      <input matInput [matDatepicker]="agreementDatePicker" placeholder="Agreement date">
+      <mat-datepicker-toggle matSuffix [for]="agreementDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #agreementDatePicker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="ewypowiedzenia-full-width">
+      <input matInput [matDatepicker]="dismissalDatePicker" placeholder="Dismissal date">
+      <mat-datepicker-toggle matSuffix [for]="dismissalDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #dismissalDatePicker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="ewypowiedzenia-full-width">
+        <input matInput class="form-control" name="dismissalPlace" required [(ngModel)]="dismissalNotice.dismissalPlace" placeholder="Dismissal place">
+    </mat-form-field>
+    <button mat-raised-button [disabled]="!dismissalNoticeForm.valid" (click)="generate(dismissalNotice)">Generate</button>
+  </form>
 </div>

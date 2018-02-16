@@ -5,9 +5,11 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import pl.jcommerce.ewypowiedzenia.application.DismissalNoticeService;
@@ -15,6 +17,7 @@ import pl.jcommerce.ewypowiedzenia.infrastructure.DismissalNoticeDto;
 import pl.jcommerce.ewypowiedzenia.infrastructure.FileDto;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 public class DismissalNoticeController {
 
@@ -22,8 +25,8 @@ public class DismissalNoticeController {
 
     @PostMapping("/generate")
     @ResponseStatus(code = HttpStatus.CREATED)
-    public DismissalNoticeDto generate() {
-        return DismissalNoticeDto.builder().build();
+    public DismissalNoticeDto generate(@RequestBody DismissalNoticeDto dismissalNoticeDto) {
+        return dismissalNoticeDto;
     }
 
     @GetMapping("/download/{id}")
