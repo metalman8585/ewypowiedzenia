@@ -2,13 +2,14 @@ package pl.jcommerce.ewypowiedzenia.infrastructure;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-@Builder
+@NoArgsConstructor
 public class AddressDto {
 
-    private final String street;
-    private final String postalCode;
-    private final String city;
+    private String street;
+    private String postalCode;
+    private String city;
 
 }
