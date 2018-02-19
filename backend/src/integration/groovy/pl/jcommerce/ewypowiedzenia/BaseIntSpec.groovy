@@ -1,5 +1,6 @@
 package pl.jcommerce.ewypowiedzenia
 
+import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.ContextConfiguration
@@ -14,6 +15,8 @@ import spock.lang.Specification
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 abstract class BaseIntSpec extends Specification {
 
+    static final ObjectMapper jsonMapper = new ObjectMapper()
+
     @Autowired
     WebApplicationContext context
 
@@ -26,6 +29,10 @@ abstract class BaseIntSpec extends Specification {
 
     def performRequest(MockHttpServletRequestBuilder requestBuilder) {
         client.perform(requestBuilder)
+    }
+
+    def toJson(def object) {
+        jsonMapper.writeValueAsString(object)
     }
 
 }

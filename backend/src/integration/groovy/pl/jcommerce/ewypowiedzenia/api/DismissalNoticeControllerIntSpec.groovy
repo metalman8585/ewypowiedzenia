@@ -1,6 +1,8 @@
 package pl.jcommerce.ewypowiedzenia.api
 
+import org.springframework.http.MediaType
 import pl.jcommerce.ewypowiedzenia.BaseIntSpec
+import pl.jcommerce.ewypowiedzenia.infrastructure.DismissalNoticeDto
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
@@ -9,8 +11,13 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class DismissalNoticeControllerIntSpec extends BaseIntSpec {
 
     def "should create dismissal notice"() {
+        given:
+        def dismissalNoticeDto = new DismissalNoticeDto()
+
         when:
-        def response = performRequest(post("/generate"))
+        def response = performRequest(post("/generate", dismissalNoticeDto)
+                .content(toJson(dismissalNoticeDto))
+                .contentType(MediaType.APPLICATION_JSON))
 
         then:
         response.andExpect(status().isCreated())
