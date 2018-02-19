@@ -1,24 +1,26 @@
 package pl.jcommerce.ewypowiedzenia.infrastructure;
 
-import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.time.LocalDateTime;
 
 @Data
-@Builder
+@NoArgsConstructor
+@XmlRootElement
 public class DismissalNoticeDto {
 
-    private final String firstName;
-    private final String lastName;
-    private final AddressDto homeAddress;
+    private String firstName;
+    private String lastName;
+    private AddressDto homeAddress;
 
-    private final String companyName;
-    private final AddressDto companyAddress;
+    private String companyName;
+    private AddressDto companyAddress;
 
-    private final LocalDateTime agreementDate;
+    private LocalDateTime agreementDate;
 
-    private final LocalDateTime dismissalDate;
-    private final String dismissalPlace;
+    private LocalDateTime dismissalDate;
+    private String dismissalPlace;
 
 }
