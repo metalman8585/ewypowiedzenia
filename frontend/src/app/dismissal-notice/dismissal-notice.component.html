@@ -28,12 +28,12 @@
         <input matInput class="form-control" name="companyAddressCity" required [(ngModel)]="dismissalNotice.companyAddress.city" placeholder="City">
     </mat-form-field>
     <mat-form-field class="ewypowiedzenia-full-width">
-      <input matInput [matDatepicker]="agreementDatePicker" placeholder="Agreement date">
+      <input matInput [matDatepicker]="agreementDatePicker" required [(ngModel)]="dismissalNotice.agreementDate" placeholder="Agreement date">
       <mat-datepicker-toggle matSuffix [for]="agreementDatePicker"></mat-datepicker-toggle>
       <mat-datepicker #agreementDatePicker></mat-datepicker>
     </mat-form-field>
     <mat-form-field class="ewypowiedzenia-full-width">
-      <input matInput [matDatepicker]="dismissalDatePicker" placeholder="Dismissal date">
+      <input matInput [matDatepicker]="dismissalDatePicker" required [(ngModel)]="dismissalNotice.dismissalDate" placeholder="Dismissal date">
       <mat-datepicker-toggle matSuffix [for]="dismissalDatePicker"></mat-datepicker-toggle>
       <mat-datepicker #dismissalDatePicker></mat-datepicker>
     </mat-form-field>

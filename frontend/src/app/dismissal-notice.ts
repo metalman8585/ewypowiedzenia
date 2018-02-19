@@ -6,13 +6,15 @@ export class DismissalNotice {
   homeAddress: Address;
   companyName: string;
   companyAddress: Address;
-  agreementDate: string;
-  dismissalDate: string;
+  agreementDate: Date;
+  dismissalDate: Date;
   dismissalPlace: string;
 
   constructor() {
     this.homeAddress = new Address;
     this.companyAddress = new Address;
+    this.agreementDate = null;
+    this.dismissalDate = null;
   }
 
 }
