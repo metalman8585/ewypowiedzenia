@@ -75,7 +75,7 @@
                         <xsl:choose>
                             <xsl:when test="dismissalNotice/dismissalPeriod = 0.5">dwa tygodnie.</xsl:when>
                             <xsl:when test="dismissalNotice/dismissalPeriod = 1">jeden miesiac.</xsl:when>
-                            <xsl:when test="dismissalNotice/dismissalPeriod = 3">trzy miesiace.</xsl:when>
+                            <xsl:otherwise>trzy miesiace.</xsl:otherwise>
                         </xsl:choose>
                     </fo:block>
                     <fo:block>&#160;</fo:block>
