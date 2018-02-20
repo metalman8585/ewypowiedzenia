@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+/* Application-wide Styles */
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+.ewypowiedzenia-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.ewypowiedzenia-full-width {
+  width: 100%;
+}
+
+/* everywhere else */
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
