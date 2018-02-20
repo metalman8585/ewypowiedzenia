@@ -1,6 +1,5 @@
 package pl.jcommerce.ewypowiedzenia.infrastructure;
 
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
