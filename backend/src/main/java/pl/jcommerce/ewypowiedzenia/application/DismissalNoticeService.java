@@ -34,6 +34,8 @@ import java.nio.charset.StandardCharsets;
 public class DismissalNoticeService {
 
     private static final String XSLT_FILE = "dismissal-notice.xsl";
+    private static final String PDF_FILE = "dismissal-notice.pdf";
+    private static final String PDF_MIME_TYPE = "application/octet-stream";
 
     private final FopFactory fopFactory = FopFactory.newInstance(new File(".").toURI());
 
@@ -62,16 +64,16 @@ public class DismissalNoticeService {
         }
 
         return FileDto.builder()
-                .filenameWithExtension("dismissal-notice.pdf")
-                .mimeType("application/octet-stream")
+                .filenameWithExtension(PDF_FILE)
+                .mimeType(PDF_MIME_TYPE)
                 .content(out.toByteArray())
                 .build();
     }
 
     public FileDto getFile(Long id) {
         return FileDto.builder()
-                .filenameWithExtension("dismissal-notice.pdf")
-                .mimeType("application/octet-stream")
+                .filenameWithExtension(PDF_FILE)
+                .mimeType(PDF_MIME_TYPE)
                 .build();
     }
 
