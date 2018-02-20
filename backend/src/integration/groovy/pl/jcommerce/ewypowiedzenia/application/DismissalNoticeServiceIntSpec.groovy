@@ -1,20 +1,22 @@
 package pl.jcommerce.ewypowiedzenia.api
 
-import org.springframework.http.MediaType
+import com.google.common.io.Files
 import pl.jcommerce.ewypowiedzenia.BaseIntSpec
+import pl.jcommerce.ewypowiedzenia.application.DismissalNoticeService
 import pl.jcommerce.ewypowiedzenia.infrastructure.AddressDto
 import pl.jcommerce.ewypowiedzenia.infrastructure.DismissalNoticeDto
 
 import java.time.LocalDate
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
+class DismissalNoticeServiceIntSpec extends BaseIntSpec {
 
-class DismissalNoticeControllerIntSpec extends BaseIntSpec {
+    private static String dismissalNoticeSampleFilename = 'target/sample_dismissal_notice.pdf'
 
-    def "should create dismissal notice"() {
+    def service = new DismissalNoticeService()
+
+    def "should generate dismissal notice pdf"() {
         given:
+        def file = new File(dismissalNoticeSampleFilename)
         def dismissalNoticeDto = new DismissalNoticeDto(firstName: "Adam", lastName: "Kowalski",
                 homeAddress: new AddressDto(street: "Armii Czerwonej 5/7", postalCode: "41-506", city: "Chorzów"),
                 companyName: "JanuszeBiznesu",
@@ -23,23 +25,24 @@ class DismissalNoticeControllerIntSpec extends BaseIntSpec {
                 dismissalPlace: "Katowice", dismissalDate: LocalDate.now(), dismissalPeriod: 3)
 
         when:
-        def response = performRequest(post("/generate", dismissalNoticeDto)
-                .content(toJson(dismissalNoticeDto))
-                .contentType(MediaType.APPLICATION_JSON))
+        def pdfDto = service.generate(dismissalNoticeDto)
 
         then:
-        response.andExpect(status().isCreated())
+        pdfDto.filenameWithExtension == "dismissal-notice.pdf"
+        pdfDto.mimeType == "application/octet-stream"
+        Files.write(pdfDto.content, file)
     }
 
-    def "should download file"() {
+    def "should return file dto"() {
         given:
         def id = 1L
 
         when:
-        def response = performRequest(get("/download/" + id))
+        def pdfDto = service.getFile(id)
 
         then:
-        response.andExpect(status().isOk())
+        pdfDto.filenameWithExtension == "dismissal-notice.pdf"
+        pdfDto.mimeType == "application/octet-stream"
     }
 
 }

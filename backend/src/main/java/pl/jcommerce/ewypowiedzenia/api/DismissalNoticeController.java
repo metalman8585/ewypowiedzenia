@@ -26,6 +26,7 @@ public class DismissalNoticeController {
     @PostMapping("/generate")
     @ResponseStatus(code = HttpStatus.CREATED)
     public DismissalNoticeDto generate(@RequestBody DismissalNoticeDto dismissalNoticeDto) {
+        dismissalNoticeService.generate(dismissalNoticeDto);
         return dismissalNoticeDto;
     }
 

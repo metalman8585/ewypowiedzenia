@@ -15,7 +15,7 @@ class DismissalNoticeServiceSpec extends Specification {
         def fileDto = dismissalNoticeService.getFile(id)
 
         then:
-        fileDto.filenameWithExtension == "dismissal.pdf"
+        fileDto.filenameWithExtension == "dismissal-notice.pdf"
         fileDto.mimeType == "application/octet-stream"
     }
 
