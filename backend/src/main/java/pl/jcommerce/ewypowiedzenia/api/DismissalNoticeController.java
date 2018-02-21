@@ -25,14 +25,8 @@ public class DismissalNoticeController {
 
     @PostMapping("/generate")
     @ResponseStatus(code = HttpStatus.CREATED)
-    public DismissalNoticeDto generate(@RequestBody DismissalNoticeDto dismissalNoticeDto) {
-        dismissalNoticeService.generate(dismissalNoticeDto);
-        return dismissalNoticeDto;
-    }
-
-    @GetMapping("/download/{id}")
-    public HttpEntity download(@PathVariable("id") Long id) {
-        FileDto fileDto = dismissalNoticeService.getFile(id);
+    public HttpEntity generate(@RequestBody DismissalNoticeDto dismissalNoticeDto) {
+        FileDto fileDto = dismissalNoticeService.generate(dismissalNoticeDto);
         HttpHeaders header = new HttpHeaders();
         header.setContentType(MediaType.valueOf(fileDto.getMimeType()));
         header.set(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + dismissalNoticeService.encodeFilename(fileDto));
