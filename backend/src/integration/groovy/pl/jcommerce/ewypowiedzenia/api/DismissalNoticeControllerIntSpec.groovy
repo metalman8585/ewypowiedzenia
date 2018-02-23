@@ -14,8 +14,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 class DismissalNoticeControllerIntSpec extends BaseIntSpec {
 
-    @Ignore
-    //TODO: Fix problem with dates
     def "should create dismissal notice"() {
         given:
         def dismissalNoticeDto = new DismissalNoticeDto(firstName: "Adam", lastName: "Kowalski",
