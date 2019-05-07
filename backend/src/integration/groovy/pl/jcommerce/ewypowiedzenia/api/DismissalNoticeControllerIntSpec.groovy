@@ -6,6 +6,7 @@ import pl.jcommerce.ewypowiedzenia.infrastructure.AddressDto
 import pl.jcommerce.ewypowiedzenia.infrastructure.DismissalNoticeDto
 
 import java.time.LocalDate
+import spock.lang.Ignore
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
@@ -23,23 +24,12 @@ class DismissalNoticeControllerIntSpec extends BaseIntSpec {
                 dismissalPlace: "Katowice", dismissalDate: LocalDate.now(), dismissalPeriod: 3)
 
         when:
-        def response = performRequest(post("/generate", dismissalNoticeDto)
+        def response = performRequest(post("/generate")
                 .content(toJson(dismissalNoticeDto))
                 .contentType(MediaType.APPLICATION_JSON))
 
         then:
         response.andExpect(status().isCreated())
-    }
-
-    def "should download file"() {
-        given:
-        def id = 1L
-
-        when:
-        def response = performRequest(get("/download/" + id))
-
-        then:
-        response.andExpect(status().isOk())
     }
 
 }
